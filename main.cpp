@@ -12,8 +12,12 @@ int main()
 
 
 
-
-    const char* str="Observe_example.txt";        //#1 пример файл не существует
+    const char* str="Observe_example.txt";        //#2 пример файл существует
+    QFile file(str);
+    if (file.open(QIODevice::ReadWrite)) {
+        QTextStream stream(&file);
+        stream << "something" ;
+    }
     Monitor monitor( str );                       //создаем объект для отслеживания состояния конкретного файла
     File_observer obs;                            //определяется объект наблюдатель
     monitor.registerObserver( &obs);              //связываем Наблюдателя с Источником
