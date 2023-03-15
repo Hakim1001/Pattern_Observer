@@ -1,0 +1,4 @@
+function res = task(x)
+res=((x^2)/5)-cos(x);
+end
+
